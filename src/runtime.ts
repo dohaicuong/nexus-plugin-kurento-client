@@ -1,16 +1,21 @@
 import { RuntimePlugin } from 'nexus/plugin'
+import { Settings } from './settings'
+import kurento from 'kurento-client'
 
-export const plugin: RuntimePlugin = () => project => {
+export const plugin: RuntimePlugin<Settings, 'required'> = settings => project => {
   return {
     context: {
-      create: _req => {
+      create: async _req => {
+        const kurentoClient = await kurento(settings.kurentoUrl)
+          .catch((error: any) => console.log(error))
+
         return {
-          'nexus-plugin-kurento-client': 'hello world!'
+          kurentoClient
         }
       },
       typeGen: {
         fields: {
-          'nexus-plugin-kurento-client': 'string'
+          kurentoClient: 'any'
         }
       }
     }
