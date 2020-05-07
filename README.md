@@ -20,14 +20,19 @@
 
 
 ```
-npm install nexus-plugin-kurento-client
+yarn add nexus-plugin-kurento-client
 ```
 
 <br>
 
 ## Example Usage
 
-TODO
+```
+import { use } from 'nexus'
+import { kurentoClient } from 'nexus-plugin-kurento-client'
+
+use(kurentoClient({ kurentoUrl: $KURENTO_URL }))
+```
 
 <br>
 
