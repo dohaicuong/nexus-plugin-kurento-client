@@ -8,9 +8,6 @@
 
 - [Installation](#installation)
 - [Example Usage](#example-usage)
-- [Worktime Contributions](#worktime-contributions)
-- [Runtime Contributions](#runtime-contributions)
-- [Testtime Contributions](#testtime-contributions)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -34,18 +31,7 @@ import { kurentoClient } from 'nexus-plugin-kurento-client'
 use(kurentoClient({ kurentoUrl: $KURENTO_URL }))
 ```
 
-<br>
-
-## Worktime Contributions
-
-TODO
-
-<br>
-
-## Runtime Contributions
-
-TODO
-
-## Testtime Contributions
-
-TODO
+then you can access kurentoClient in context
+```
+resolve: (_, __, { kurentoClient }) => {}
+```
